@@ -8,9 +8,6 @@ const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH));
 if (process.env.GITHUB_EVENT_NAME !== 'pull_request') {
     console.log('skip: not a pull request');
     process.exit(0);
-} else if (event.sender.type !== 'User') {
-    console.log('skip: triggered by a bot');
-    process.exit(0);
 }
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
